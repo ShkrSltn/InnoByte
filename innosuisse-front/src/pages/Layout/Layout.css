@@ -1,0 +1,9 @@
+
+main {
+  display: flex;
+  width: 100%;
+}
+
+.admin-panel-sidebar {
+  padding-top: 40px;
+}
