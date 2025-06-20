@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import axios from 'axios';
+import { API_ENDPOINTS } from '@/config/api';
 import {
   Loader2,
   Info,
@@ -79,7 +80,7 @@ export default function AIAnalyze() {
 
     try {
       const response = await axios.post<AnalysisResult>(
-        'http://localhost:3000/ai/analyze-and-explain',
+        API_ENDPOINTS.ai.analyzeAndExplain,
         {
           query: query.trim(),
         }

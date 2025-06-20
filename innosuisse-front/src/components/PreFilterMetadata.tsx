@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 import { LoadingSpinner } from './LoadingSpinner';
+import { API_ENDPOINTS } from '@/config/api';
 import {
   BarChart,
   Bar,
@@ -43,7 +44,7 @@ export default function PreFilterMetadata() {
       try {
         setIsLoading(true);
         const response = await axios.get<Metadata[]>(
-          'http://localhost:3000/metadata/sessions'
+          API_ENDPOINTS.metadata.sessions
         );
         processChartData(response.data);
         const formatted = response.data.map((row: Metadata, index: number) => ({

@@ -6,6 +6,7 @@ import {
 import { useEffect, useMemo, useState } from 'react';
 import { Box, Button } from '@mui/material';
 import { LoadingSpinner } from './LoadingSpinner';
+import { API_ENDPOINTS } from '@/config/api';
 
 type DatatoDownload = {
   companyName: string;
@@ -24,7 +25,7 @@ export default function DownloadTable() {
   useEffect(() => {
     setIsLoading(true);
     try {
-      fetch('http://localhost:3000/deal/all-data')
+      fetch(API_ENDPOINTS.deals.allData)
         .then((res) => res.json())
         .then((json) => {
           const formatted = json.map((row: DatatoDownload, index: number) => ({

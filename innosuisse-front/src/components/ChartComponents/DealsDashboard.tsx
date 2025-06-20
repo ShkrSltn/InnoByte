@@ -8,8 +8,7 @@ import { YearRangeFilter } from '../FilterComponents/YearRangeFilter';
 import { TimelineChart } from './TimeLineChart';
 import { IndustryTrendChart } from './IndustryTrendChart';
 import { InvestedCapitalChart } from './InvestedCapitalChart';
-
-const BASE_URL = 'http://localhost:3000/deal';
+import { API_ENDPOINTS } from '@/config/api';
 const CHART_HEIGHT = '500px';
 
 interface Deal {
@@ -64,10 +63,10 @@ export default function DealsDashboard() {
       try {
         const [industriesRes, cantonsRes, phasesRes, yearsRes] =
           await Promise.all([
-            fetch(`${BASE_URL}/industries`),
-            fetch(`${BASE_URL}/cantons`),
-            fetch(`${BASE_URL}/phases`),
-            fetch(`${BASE_URL}/years`),
+            fetch(API_ENDPOINTS.deals.industries),
+            fetch(API_ENDPOINTS.deals.cantons),
+            fetch(API_ENDPOINTS.deals.phases),
+            fetch(API_ENDPOINTS.deals.years),
           ]);
 
         const [industriesData, cantonsData, phasesData, yearsData] =
@@ -167,7 +166,7 @@ export default function DealsDashboard() {
       params.append('yearFrom', yearRange[0].toString());
       params.append('yearTo', yearRange[1].toString());
 
-      const response = await fetch(`${BASE_URL}/filter?${params.toString()}`);
+      const response = await fetch(`${API_ENDPOINTS.deals.filter}?${params.toString()}`);
 
       if (!response.ok) throw new Error(`API error: ${response.status}`);
 
@@ -205,7 +204,7 @@ export default function DealsDashboard() {
     };
 
     try {
-      const response = await fetch(`http://localhost:3000/metadata/sessions`, {
+      const response = await fetch(API_ENDPOINTS.metadata.sessions, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
