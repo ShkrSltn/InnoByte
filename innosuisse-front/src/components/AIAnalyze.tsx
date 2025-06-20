@@ -68,7 +68,6 @@ export default function AIAnalyze() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [showResults, setShowResults] = useState(false);
   const [showInsights, setShowInsights] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -103,7 +102,7 @@ export default function AIAnalyze() {
 
     return Object.keys(result.result[0]).map((key) =>
       columnHelper.accessor(key, {
-        header: ({ column }) => (
+        header: () => (
           <div className="flex items-center justify-between gap-2 whitespace-nowrap">
             <span>{key}</span>
             <ArrowUpDown className="h-4 w-4 text-muted-foreground/70" />

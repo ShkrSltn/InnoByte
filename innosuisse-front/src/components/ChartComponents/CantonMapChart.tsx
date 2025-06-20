@@ -142,7 +142,7 @@ export function CantonMapChart({ names, values, maxDeals }: CantonMapChartProps)
         notMerge={true}
         lazyUpdate={true}
         onEvents={{
-          error: (err) => {
+          error: (err: any) => {
             console.error('Chart error:', err);
             setError('Chart rendering failed');
           }
