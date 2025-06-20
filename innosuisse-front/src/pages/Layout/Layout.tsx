@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { BookOpenIcon, BarChartIcon, MenuIcon, XIcon } from 'lucide-react';
 import {
   Sidebar,
@@ -65,28 +65,28 @@ export function Layout() {
                       asChild
                       className="hover:bg-white/10 transition-colors duration-200 rounded-md px-2 py-1.5"
                     >
-                      <a href="/ai-analyzer">
+                      <Link to="/ai-analyzer">
                         <BarChartIcon className="h-4 w-4" />
                         AI-Analyze
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                     <SidebarMenuButton
                       asChild
                       className="hover:bg-white/10 transition-colors duration-200 rounded-md px-2 py-1.5"
                     >
-                      <a href="/">
+                      <Link to="/">
                         <BookOpenIcon className="h-4 w-4" />
                         Deals Dashboard
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                     <SidebarMenuButton
                       asChild
                       className="hover:bg-white/10 transition-colors duration-200 rounded-md px-2 py-1.5"
                     >
-                      <a href="/download">
+                      <Link to="/download">
                         <BookOpenIcon className="h-4 w-4" />
                         Download Data
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </div>
                 </SidebarMenuItem>
@@ -100,10 +100,10 @@ export function Layout() {
                       asChild
                       className="hover:bg-white/10 transition-colors duration-200 rounded-md px-2 py-1.5"
                     >
-                      <a href="/metadata-statistics">
+                      <Link to="/metadata-statistics">
                         <BookOpenIcon className="h-4 w-4" />
                         Metadata Statistics
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </div>
                 </SidebarMenuItem>
@@ -130,30 +130,30 @@ export function Layout() {
                 <h3 className="text-xs font-semibold text-white/50 uppercase tracking-wider mt-4 mb-2 px-2">
                   Categories
                 </h3>
-                <a
-                    href="/ai-analyzer"
+                <Link
+                    to="/ai-analyzer"
                     className="flex items-center gap-3 hover:bg-white/10 transition-colors duration-200 rounded-md px-2 py-1.5"
                     onClick={() => setMobileMenuOpen(false)}
                 >
                   <BarChartIcon className="h-4 w-4"/>
                   AI-Analyze
-                </a>
-                <a
-                  href="/"
+                </Link>
+                <Link
+                  to="/"
                   className="flex items-center gap-3 hover:bg-white/10 transition-colors duration-200 rounded-md px-2 py-1.5"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <BookOpenIcon className="h-4 w-4" />
                   Deals Dashboard
-                </a>
-                <a
-                  href="/"
+                </Link>
+                <Link
+                  to="/"
                   className="flex items-center gap-3 hover:bg-white/10 transition-colors duration-200 rounded-md px-2 py-1.5"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <BookOpenIcon className="h-4 w-4" />
                   Download Table
-                </a>
+                </Link>
                 <img src="/startupticker_ch_logo.jpeg" alt="Logo" className="h-12 w-12 mt-3 mx-1" />
               </div>
             </div>
