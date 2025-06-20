@@ -95,7 +95,7 @@ export default function DealsDashboard() {
     fetchData();
   }, []);
 
-  const handleIndustryChange = (selected: string[]) => {
+ /*  const handleIndustryChange = (selected: string[]) => {
     if (selected.includes('All')) {
       if (industries) {
         setChosenIndustries(industries);
@@ -123,7 +123,7 @@ export default function DealsDashboard() {
     } else {
       setChosenPhases(selected);
     }
-  };
+  }; */
 
   const hasAtLeastOneFilter = () => {
     return (
